@@ -1,0 +1,267 @@
+/* LightCue site shared stylesheet.
+   Applied to landing, privacy, terms, and support pages so they
+   inherit the same look. */
+
+:root {
+  --text: #1a1a1a;
+  --muted: #585858;
+  --soft: #8a8a8a;
+  --accent: #d56619;
+  --accent-deep: #c75512;
+  --bg: #ffffff;
+  --surface: #f7f7f7;
+  --border: #e5e5e5;
+  --radius: 14px;
+  --max-width: 720px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #ededed;
+    --muted: #b0b0b0;
+    --soft: #6f6f6f;
+    --accent: #ff8c3d;
+    --accent-deep: #ff6f1a;
+    --bg: #0e0e10;
+    --surface: #18181b;
+    --border: #2a2a2e;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 56px 24px 96px;
+}
+
+h1, h2, h3 {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Helvetica, Arial, sans-serif;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: var(--text);
+}
+
+h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin: 0 0 0.5em;
+}
+
+h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-top: 2.4em;
+  margin-bottom: 0.6em;
+  padding-top: 1.6em;
+  border-top: 1px solid var(--border);
+}
+
+h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-top: 1.6em;
+  margin-bottom: 0.3em;
+}
+
+p {
+  margin: 0.7em 0;
+  color: var(--text);
+}
+
+ul {
+  padding-left: 1.4em;
+  margin: 0.6em 0;
+}
+
+li {
+  margin: 0.3em 0;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 120ms ease;
+}
+
+a:hover, a:focus {
+  border-bottom-color: var(--accent);
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  padding: 0.05em 0.4em;
+  background: var(--surface);
+  border-radius: 4px;
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin: 0 0 1.8em;
+}
+
+.summary {
+  background: rgba(213, 102, 25, 0.06);
+  border: 1px solid rgba(213, 102, 25, 0.18);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  margin: 1.8em 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .summary {
+    background: rgba(255, 140, 61, 0.08);
+    border-color: rgba(255, 140, 61, 0.22);
+  }
+}
+
+.summary strong { display: block; margin-bottom: 0.5em; }
+
+.footer {
+  margin-top: 4em;
+  padding-top: 1.5em;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.88rem;
+  text-align: center;
+}
+
+.footer a { color: var(--muted); }
+
+/* ------------------------------------------------------------------
+   Landing-page-specific styling
+   ------------------------------------------------------------------ */
+
+.landing {
+  text-align: center;
+}
+
+.landing main {
+  padding-top: 96px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.2em;
+}
+
+.landing h1 {
+  font-size: clamp(2.4rem, 6vw, 3.4rem);
+  margin-bottom: 0.4em;
+  background: linear-gradient(180deg, var(--text) 0%, var(--muted) 140%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.lede {
+  font-size: 1.15rem;
+  color: var(--muted);
+  max-width: 540px;
+  margin: 0 auto 2.4em;
+}
+
+.cta-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.6em;
+  margin-bottom: 3.5em;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+}
+
+.btn:hover { transform: translateY(-1px); }
+
+.btn-primary {
+  background: linear-gradient(180deg, var(--accent), var(--accent-deep));
+  color: #ffffff;
+  border-color: var(--accent-deep);
+  box-shadow: 0 6px 22px rgba(213, 102, 25, 0.28);
+}
+
+.btn-primary:hover { border-bottom-color: var(--accent-deep); }
+
+.btn-ghost {
+  color: var(--text);
+  border-color: var(--border);
+  background: transparent;
+}
+
+.btn-ghost:hover { border-bottom-color: var(--border); }
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin: 2em auto 0;
+  text-align: left;
+}
+
+.feature {
+  padding: 18px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.feature h3 {
+  margin: 0 0 0.3em;
+  font-size: 1rem;
+}
+
+.feature p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.legal-links {
+  margin-top: 4em;
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.legal-links a {
+  color: var(--muted);
+  border-bottom-color: transparent;
+}
+
+.legal-links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
